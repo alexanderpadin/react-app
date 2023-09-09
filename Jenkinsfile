@@ -3,7 +3,10 @@ pipeline {
     stages {
         stage('Static Analysis') {
             steps {
-                echo 'Run the static analysis to the code' 
+                echo 'Run the static analysis to the code'
+                withSonarQubeEnv(installationName: 'sq1') {
+                    println ${env.SONAR_HOST_URL}
+                } 
             }
         }
         stage('Compile') {
