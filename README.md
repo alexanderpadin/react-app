@@ -1,6 +1,6 @@
 ## Compose sample application
 
-testign
+testing
 ### Use with Docker Development Environments
 
 You can open this sample in the Dev Environments feature of Docker Desktop version 4.12 or later.
