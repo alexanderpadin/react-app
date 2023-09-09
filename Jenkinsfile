@@ -5,7 +5,7 @@ pipeline {
             steps {
                 echo 'Run the static analysis to the code'
                 withSonarQubeEnv(installationName: 'sq1') {
-                    println ${env.SONAR_HOST_URL}
+                    println "${env.SONAR_HOST_URL}"
                 } 
             }
         }
