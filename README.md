@@ -1,6 +1,6 @@
 ## Compose sample application
 
-testing 2
+testing 3
 ### Use with Docker Development Environments
 
 You can open this sample in the Dev Environments feature of Docker Desktop version 4.12 or later.
