@@ -4,8 +4,9 @@ pipeline {
         stage('Static Analysis') {
             steps {
                 echo 'Run the static analysis to the code'
-                withSonarQubeEnv(installationName: 'sq1') {
+                withSonarQubeEnv(installationName: 'sq1', envOnly: true) {
                     println "${env.SONAR_HOST_URL}"
+                    sh "${scannerHome}/bin/sonar-scanner"
                 } 
             }
         }
