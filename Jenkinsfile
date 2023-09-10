@@ -7,12 +7,8 @@ pipeline {
                     echo 'Run the static analysis to the code!'
                     def scannerHome = tool 'sonarscanner';
                     withSonarQubeEnv(installationName: 'sq1', envOnly: true) {
-                        // println "${env.SONAR_HOST_URL}"
-                        // sh "${scannerHome}/bin/sonar-scanner"
-                        sh '''${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=test \
-                        -Dsonar.projectName=test \
-                        -Dsonar.projectVersion=1.0 \
-                        -Dsonar.sources=src/ '''
+                        println "${env.SONAR_HOST_URL}"
+                        sh "${scannerHome}/bin/sonar-scanner"
                     }
                 } 
             }
