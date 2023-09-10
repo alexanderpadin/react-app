@@ -6,12 +6,13 @@ pipeline {
                 script {
                     echo 'Run the static analysis to the code!'
                     def scannerHome = tool 'sonarscanner';
-                    // withSonarQubeEnv(installationName: 'sq1', envOnly: true) {
-                    //     println "${env.SONAR_HOST_URL}"
-                    //     sh "${scannerHome}/bin/sonar-scanner"
-                    // }
-                    withSonarQubeEnv() {
-                        sh "${scannerHome}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=test -Dsonar.projectName='test'"
+                    withSonarQubeEnv(installationName: 'sq1', envOnly: true) {
+                        // println "${env.SONAR_HOST_URL}"
+                        // sh "${scannerHome}/bin/sonar-scanner"
+                        sh '''${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=test \
+                        -Dsonar.projectName=test \
+                        -Dsonar.projectVersion=1.0 \
+                        -Dsonar.sources=src/ '''
                     }
                 } 
             }
