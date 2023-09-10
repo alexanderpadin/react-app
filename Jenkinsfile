@@ -2,14 +2,12 @@ pipeline {
     agent any 
     stages {
         stage('Static Analysis') {
-            steps {
-                echo 'Run the static analysis to the code'
-                def scannerHome = tool 'SonarScanner 10.2';
-                withSonarQubeEnv(installationName: 'sq1', envOnly: true) {
-                    println "${env.SONAR_HOST_URL}"
-                    sh "${scannerHome}/bin/sonar-scanner"
-                } 
-            }
+            echo 'Run the static analysis to the code'
+            def scannerHome = tool 'SonarScanner 10.';
+            withSonarQubeEnv(installationName: 'sq1', envOnly: true) {
+                println "${env.SONAR_HOST_URL}"
+                sh "${scannerHome}/bin/sonar-scanner"
+            } 
         }
         stage('Compile') {
             steps {
